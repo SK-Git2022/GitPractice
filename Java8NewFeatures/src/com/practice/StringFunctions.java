@@ -7,6 +7,10 @@ public class StringFunctions {
 
 		String input="Ab$323&&";
 		System.out.println("Number is=>"+input.replaceAll("[^0-9]", ""));
+		
+		System.out.println("Other than number is=>"+input.replaceAll("[0-9]", ""));
+		
+		
 	}
 
 }
