@@ -26,7 +26,8 @@ public class Practice {
 		
 		  int a = 10_00000;  
 	      System.out.println("a = "+a);  
-
+	      
+	      System.out.println("Practice=>");  
 		
 	}
 
