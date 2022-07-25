@@ -28,6 +28,7 @@ public class Practice {
 	      System.out.println("a = "+a);  
 	      
 	      System.out.println("Practice=>");  
+	      
 		
 	}
 
