@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite failures="0" name="cucumber.runtime.formatter.JUnitFormatter" skipped="0" tests="1" time="0.211137">
+    <testcase classname="Validating APIs" name="verify file contains correct output" time="0.211137">
+        <system-out><![CDATA[Given Files "InstrumentDetails.csv" and "ositionDetails.csv"................passed
+When processed in the system................................................passed
+Then verify "PositionReport.csv" file.......................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

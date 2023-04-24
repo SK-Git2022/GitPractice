@@ -1,0 +1,104 @@
+[
+  {
+    "line": 20,
+    "elements": [
+      {
+        "start_timestamp": "2023-04-24T09:51:39.154Z",
+        "line": 23,
+        "name": "verify file contains correct output",
+        "description": "",
+        "id": "validating-apis;verify-file-contains-correct-output",
+        "after": [
+          {
+            "result": {
+              "duration": 294099,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinition.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 8819700,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "Files \"InstrumentDetails.csv\" and \"ositionDetails.csv\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"InstrumentDetails.csv\"",
+                  "offset": 6
+                },
+                {
+                  "val": "\"ositionDetails.csv\"",
+                  "offset": 34
+                }
+              ],
+              "location": "StepDefinition.files_and(String,String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 854601,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "processed in the system",
+            "match": {
+              "location": "StepDefinition.processed_in_the_system()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 104440500,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "verify \"PositionReport.csv\" file",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"PositionReport.csv\"",
+                  "offset": 7
+                }
+              ],
+              "location": "StepDefinition.verify_file(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@FileCompare"
+          },
+          {
+            "name": "@PositionReportFileCompare"
+          }
+        ]
+      }
+    ],
+    "name": "Validating APIs",
+    "description": "",
+    "id": "validating-apis",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/com/techm/ReqResp/features/FileComparisons.feature",
+    "tags": [
+      {
+        "name": "@FileCompare",
+        "type": "Tag",
+        "location": {
+          "line": 19,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
