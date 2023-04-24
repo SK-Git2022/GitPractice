@@ -1,17 +1,17 @@
 [
   {
-    "line": 20,
+    "line": 2,
     "elements": [
       {
-        "start_timestamp": "2023-04-24T09:51:39.154Z",
-        "line": 23,
+        "start_timestamp": "2023-04-24T18:52:10.305Z",
+        "line": 5,
         "name": "verify file contains correct output",
         "description": "",
         "id": "validating-apis;verify-file-contains-correct-output",
         "after": [
           {
             "result": {
-              "duration": 294099,
+              "duration": 262800,
               "status": "passed"
             },
             "match": {
@@ -24,11 +24,11 @@
         "steps": [
           {
             "result": {
-              "duration": 8819700,
+              "duration": 51575300,
               "status": "passed"
             },
-            "line": 24,
-            "name": "Files \"InstrumentDetails.csv\" and \"ositionDetails.csv\"",
+            "line": 6,
+            "name": "Files \"InstrumentDetails.csv\" and \"PositionDetails.csv\"",
             "match": {
               "arguments": [
                 {
@@ -36,7 +36,7 @@
                   "offset": 6
                 },
                 {
-                  "val": "\"ositionDetails.csv\"",
+                  "val": "\"PositionDetails.csv\"",
                   "offset": 34
                 }
               ],
@@ -46,10 +46,10 @@
           },
           {
             "result": {
-              "duration": 854601,
+              "duration": 712900,
               "status": "passed"
             },
-            "line": 25,
+            "line": 7,
             "name": "processed in the system",
             "match": {
               "location": "StepDefinition.processed_in_the_system()"
@@ -58,10 +58,10 @@
           },
           {
             "result": {
-              "duration": 104440500,
+              "duration": 26343800,
               "status": "passed"
             },
-            "line": 26,
+            "line": 8,
             "name": "verify \"PositionReport.csv\" file",
             "match": {
               "arguments": [
@@ -95,7 +95,578 @@
         "name": "@FileCompare",
         "type": "Tag",
         "location": {
-          "line": 19,
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2023-04-24T18:52:10.443Z",
+        "line": 13,
+        "name": "Verify if User is able to click on various get options",
+        "description": "",
+        "id": "validating-apis;verify-if-user-is-able-to-click-on-various-get-options;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 734915300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinition.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 3702059400,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "\"Chrome\" browser is opened",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Chrome\"",
+                  "offset": 0
+                }
+              ],
+              "location": "StepDefinition.browser_is_opened(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4706648000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user opens application url in the browser",
+            "match": {
+              "location": "StepDefinition.user_opens_application_url_in_the_browser()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 124414000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user click on \"List users\" with \"GET\" http request",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"List users\"",
+                  "offset": 14
+                },
+                {
+                  "val": "\"GET\"",
+                  "offset": 32
+                }
+              ],
+              "location": "StepDefinition.user_click_on_with_http_request(String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2754064500,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "users sees \"/api/users?page\u003d2\" and \"200\" and \"total,12\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/api/users?page\u003d2\"",
+                  "offset": 11
+                },
+                {
+                  "val": "\"200\"",
+                  "offset": 35
+                },
+                {
+                  "val": "\"total,12\"",
+                  "offset": 45
+                }
+              ],
+              "location": "StepDefinition.users_sees_and_and(String,String,String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUITests"
+          },
+          {
+            "name": "@HomePageGetOptions"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-04-24T18:52:22.500Z",
+        "line": 14,
+        "name": "Verify if User is able to click on various get options",
+        "description": "",
+        "id": "validating-apis;verify-if-user-is-able-to-click-on-various-get-options;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 585589600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinition.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1617556900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "\"Chrome\" browser is opened",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Chrome\"",
+                  "offset": 0
+                }
+              ],
+              "location": "StepDefinition.browser_is_opened(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4889760800,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user opens application url in the browser",
+            "match": {
+              "location": "StepDefinition.user_opens_application_url_in_the_browser()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 145291100,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user click on \"List \u003cresource\u003e\" with \"GET\" http request",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"List \u003cresource\u003e\"",
+                  "offset": 14
+                },
+                {
+                  "val": "\"GET\"",
+                  "offset": 37
+                }
+              ],
+              "location": "StepDefinition.user_click_on_with_http_request(String,String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "error_message": "io.restassured.path.json.exception.JsonPathException: Failed to parse the JSON document\r\n\tat io.restassured.path.json.JsonPath$ExceptionCatcher.invoke(JsonPath.java:1002)\r\n\tat io.restassured.path.json.JsonPath$4.doParseWith(JsonPath.java:967)\r\n\tat io.restassured.path.json.JsonPath$JsonParser.parseWith(JsonPath.java:1047)\r\n\tat io.restassured.path.json.JsonPath.get(JsonPath.java:202)\r\n\tat com.techm.ReqResp.pageobjects.HomePage.verifyDetailsForEachMethod(HomePage.java:64)\r\n\tat com.techm.ReqResp.stepDefs.StepDefinition.users_sees_and_and(StepDefinition.java:129)\r\n\tat ✽.users sees \"/api/unknown\" and \"200\" and \"total,12\"(file:src/test/java/com/techm/ReqResp/features/GUITests.feature:9)\r\nCaused by: java.lang.IllegalArgumentException: The JSON input text should neither be null nor empty.\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:73)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrapNoCoerce.callConstructor(ConstructorSite.java:108)\r\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:58)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:263)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:277)\r\n\tat io.restassured.internal.path.json.ConfigurableJsonSlurper.parseText(ConfigurableJsonSlurper.groovy:80)\r\n\tat io.restassured.path.json.JsonPath$4$1.method(JsonPath.java:965)\r\n\tat io.restassured.path.json.JsonPath$ExceptionCatcher.invoke(JsonPath.java:1000)\r\n\tat io.restassured.path.json.JsonPath$4.doParseWith(JsonPath.java:967)\r\n\tat io.restassured.path.json.JsonPath$JsonParser.parseWith(JsonPath.java:1047)\r\n\tat io.restassured.path.json.JsonPath.get(JsonPath.java:202)\r\n\tat com.techm.ReqResp.pageobjects.HomePage.verifyDetailsForEachMethod(HomePage.java:64)\r\n\tat com.techm.ReqResp.stepDefs.StepDefinition.users_sees_and_and(StepDefinition.java:129)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)\r\n\tat java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.base/java.lang.reflect.Method.invoke(Method.java:568)\r\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\r\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\r\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\r\n\tat cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:57)\r\n\tat cucumber.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:50)\r\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:65)\r\n\tat cucumber.runner.TestStep.run(TestStep.java:50)\r\n\tat cucumber.runner.PickleStepTestStep.run(PickleStepTestStep.java:43)\r\n\tat cucumber.runner.TestCase.run(TestCase.java:46)\r\n\tat cucumber.runner.Runner.runPickle(Runner.java:50)\r\n\tat io.cucumber.junit.PickleRunners$NoStepDescriptions.run(PickleRunners.java:146)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:68)\r\n\tat io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:23)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:144)\r\n\tat io.cucumber.junit.Cucumber.runChild(Cucumber.java:65)\r\n\tat org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)\r\n\tat org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)\r\n\tat org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)\r\n\tat org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)\r\n\tat org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)\r\n\tat io.cucumber.junit.Cucumber$RunCucumber.evaluate(Cucumber.java:174)\r\n\tat org.junit.runners.ParentRunner.run(ParentRunner.java:309)\r\n\tat org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:93)\r\n\tat org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:529)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:756)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:452)\r\n\tat org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)\r\n",
+              "duration": 164478800,
+              "status": "failed"
+            },
+            "line": 9,
+            "name": "users sees \"/api/unknown\" and \"200\" and \"total,12\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"/api/unknown\"",
+                  "offset": 11
+                },
+                {
+                  "val": "\"200\"",
+                  "offset": 30
+                },
+                {
+                  "val": "\"total,12\"",
+                  "offset": 40
+                }
+              ],
+              "location": "StepDefinition.users_sees_and_and(String,String,String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUITests"
+          },
+          {
+            "name": "@HomePageGetOptions"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-04-24T18:52:29.928Z",
+        "line": 38,
+        "name": "verify Support button is displayed",
+        "description": "",
+        "id": "validating-apis;verify-support-button-is-displayed",
+        "after": [
+          {
+            "result": {
+              "duration": 713029800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinition.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1823899100,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "\"Chrome\" browser is opened",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Chrome\"",
+                  "offset": 0
+                }
+              ],
+              "location": "StepDefinition.browser_is_opened(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4588710300,
+              "status": "passed"
+            },
+            "line": 40,
+            "name": "user opens application url in the browser",
+            "match": {
+              "location": "StepDefinition.user_opens_application_url_in_the_browser()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 151573500,
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "user click on SupportReqResp button",
+            "match": {
+              "location": "StepDefinition.user_click_on_SupportReqResp_button()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 299483200,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "user sees one time support option",
+            "match": {
+              "location": "StepDefinition.user_sees_one_time_support_option()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 156327200,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "sees monthlysupport option",
+            "match": {
+              "location": "StepDefinition.sees_monthlysupport_option()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 92094700,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "sees SupportReqResp button to upgrade",
+            "match": {
+              "location": "StepDefinition.sees_SupportReqResp_button_to_upgrade()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@GUITests"
+          },
+          {
+            "name": "@HomePageSupportButton"
+          }
+        ]
+      }
+    ],
+    "name": "Validating APIs",
+    "description": "",
+    "id": "validating-apis",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/com/techm/ReqResp/features/GUITests.feature",
+    "tags": [
+      {
+        "name": "@GUITests",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2023-04-24T18:52:37.759Z",
+        "line": 5,
+        "name": "testRestAPI PostMethod",
+        "description": "",
+        "id": "validating-apis;testrestapi-postmethod",
+        "after": [
+          {
+            "result": {
+              "duration": 80900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinition.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 526485000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "AddUserPayload",
+            "match": {
+              "location": "StepDefinition.adduserpayload()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1882717600,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user calls \"post\" http request",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"post\"",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefinition.user_calls_http_request(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 43463100,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "the API call got success with status code 201",
+            "match": {
+              "arguments": [
+                {
+                  "val": "201",
+                  "offset": 42
+                }
+              ],
+              "location": "StepDefinition.the_API_call_got_success_with_status_code(Integer)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 23309600,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "\"name\" in response body is \"morpheus\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"name\"",
+                  "offset": 0
+                },
+                {
+                  "val": "\"morpheus\"",
+                  "offset": 27
+                }
+              ],
+              "location": "StepDefinition.in_response_body_is(String,String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@RestApiTests"
+          },
+          {
+            "name": "@RestApiPost"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-04-24T18:52:40.244Z",
+        "line": 12,
+        "name": "testRestAPI PostMethod",
+        "description": "",
+        "id": "validating-apis;testrestapi-postmethod",
+        "after": [
+          {
+            "result": {
+              "duration": 40800,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefinition.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4781500,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "PathParameter 2",
+            "match": {
+              "arguments": [
+                {
+                  "val": "2",
+                  "offset": 14
+                }
+              ],
+              "location": "StepDefinition.pathparameter(Integer)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 430682900,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "user calls \"get\" http request",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"get\"",
+                  "offset": 11
+                }
+              ],
+              "location": "StepDefinition.user_calls_http_request(String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1693800,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "the API call got success with status code 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 42
+                }
+              ],
+              "location": "StepDefinition.the_API_call_got_success_with_status_code(Integer)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 19809500,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "\"id\" in response body is \"2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"id\"",
+                  "offset": 0
+                },
+                {
+                  "val": "\"2\"",
+                  "offset": 25
+                }
+              ],
+              "location": "StepDefinition.in_response_body_is(String,String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@RestApiTests"
+          },
+          {
+            "name": "@RestApiGet"
+          }
+        ]
+      }
+    ],
+    "name": "Validating APIs",
+    "description": "",
+    "id": "validating-apis",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/com/techm/ReqResp/features/RestApiTests.feature",
+    "tags": [
+      {
+        "name": "@RestApiTests",
+        "type": "Tag",
+        "location": {
+          "line": 1,
           "column": 1
         }
       }

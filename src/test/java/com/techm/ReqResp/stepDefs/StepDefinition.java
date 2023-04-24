@@ -4,30 +4,97 @@ import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import com.techm.ReqResp.pageobjects.HomePage;
 import com.techm.ReqResp.pageobjects.SupportPage;
 import com.techm.ReqResp.utils.DriverSetup;
 import com.techm.ReqResp.utils.FileComparison;
+import com.techm.ReqResp.utils.Payload;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.log.RequestLoggingFilter;
+import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-
-
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 
 public class StepDefinition {
-		
+	
+	private static final Logger logger = LogManager.getLogger(StepDefinition.class);
+	
 	private WebDriver driver;	
+	static String getUri="/api/users/";
 	
 	SupportPage objSupportPage;
 	HomePage objHomePage;
+	RequestSpecification reqSpec;
+	ResponseSpecification respSpec;
+	Response response;
+	
+	@Given("AddUserPayload")
+	public void adduserpayload() {
+	    // Write code here that turns the phrase above into concrete actions
+		reqSpec = given().log().all().spec(getRequestSpecBuilder()).body(Payload.addPayload());
+	}
+
+	@When("user calls {string} http request")
+	public void user_calls_http_request(String string) {
+		if(string.equals("get")) {
+			response=reqSpec.when().get(getUri);
+		} else {
+			response=reqSpec.when().post("/api/users");
+		}		
+	}
+
+	@Then("the API call got success with status code {int}")
+	public void the_API_call_got_success_with_status_code(Integer int1) {
+		response.then().statusCode(int1);
+	}
+
+	@Then("{string} in response body is {string}")
+	public void in_response_body_is(String attributename, String attributevalue) {	
+		JsonPath objJsonPath=new JsonPath(response.body().asString());
+		if(attributename.contains("id")) {
+			assertEquals(objJsonPath.getString("data."+attributename), attributevalue);
+		} else {
+			assertEquals(objJsonPath.getString(attributename), attributevalue);		
+		}		
+	}
+	
+	@Given("PathParameter {int}")
+	public void pathparameter(Integer int1) {
+		reqSpec =given().log().all().spec(getRequestSpecBuilder());
+		getUri+="2";
+	}
+	
+	public RequestSpecification getRequestSpecBuilder() {
+		RequestSpecification objSpecBuiler = null;
+		try {
+			PrintStream objPrintStream = new PrintStream(new FileOutputStream("logging.txt"));
+			objSpecBuiler = new RequestSpecBuilder().setBaseUri("https://reqres.in")
+					 .addFilter(RequestLoggingFilter.logRequestTo(objPrintStream))
+					.addFilter(ResponseLoggingFilter.logResponseTo(objPrintStream)).setContentType("application/json")
+					.build();
+			return objSpecBuiler;
+		} catch (FileNotFoundException e) {
+		}
+		return objSpecBuiler;
+	}
 
 	@Given("{string} browser is opened")
 	public void browser_is_opened(String browser) {
@@ -82,52 +149,8 @@ public class StepDefinition {
 	@Then("sees SupportReqResp button to upgrade")
 	public void sees_SupportReqResp_button_to_upgrade() {
 		objSupportPage.isSupportReqRespButtonDisplayed();
-	}
+	}	
 	
-	@When("user calls {string} http request verifies {string} in response as {string}")
-	public void user_calls_http_request_verifies_in_response_as(String methodType, String attribute, String value) {
-		 
-		RestAssured.baseURI = "https://reqres.in";
-		JsonPath objJsonPath;
-		
-	        Response response;
-	               
-	               if(methodType.equals("get")) {
-	            	   response=given()
-                       .when()
-	                        .get("/api/users/2").then()
-	                        .statusCode(200)
-	                        .extract().response();           	   
-	            	   
-	            	   System.out.println(response.asString());
-	            	   
-	            	   objJsonPath=new JsonPath(response.asString());
-	            	   assertEquals(objJsonPath.getString(attribute), String.valueOf(value));	   
-	            	   
-	            	   
-	               } else {
-	            	   response=given()
-	                          .when()
-	                          .body("{\r\n"
-	                          		+ " \"name\": \r\n"
-	                          		+ "\"morpheus\",\r\n"
-	                          		+ " \"job\": \r\n"
-	                          		+ "\"leader\"\r\n"
-	                          		+ "}\r\n"
-	                          		+ "")
-	    	                       .post("/api/users")    	                       
-	    	                       .then()
-	    	                        .statusCode(201)
-	    	                        .extract().response(); 
-	            	   
-	            	   System.out.println(response.asString());
-	    	            	   
-	    	            	   objJsonPath=new JsonPath(response.asString());
-	    	            	   assertEquals(objJsonPath.getString(attribute), String.valueOf(value));
-	               }
-	                        
-	}
-
 	@After
 	public void tearDown() {
 		if(driver!=null) {

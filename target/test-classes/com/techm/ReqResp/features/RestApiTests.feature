@@ -1,14 +1,16 @@
-
 @RestApiTests
 Feature: Validating APIs
 
-   @RestApiGet
-   Scenario: testRestAPI GetMethod
-   When user calls "get" http request verifies "id" in response as "2"
-      
-   
    @RestApiPost
    Scenario: testRestAPI PostMethod
-   When user calls "post" http request verifies "name" in response as "morpheus"
+   Given AddUserPayload
+   When user calls "post" http request
+   Then the API call got success with status code 201
+   And "name" in response body is "morpheus"
    
-
+   @RestApiGet
+   Scenario: testRestAPI PostMethod
+   Given PathParameter 2
+   When user calls "get" http request
+   Then the API call got success with status code 200
+   And "id" in response body is "2"
